@@ -32,11 +32,14 @@ public class GreetingController {
     @Autowired
     private EntityManagerFactory em;
     
-    @RequestMapping("/actors")
-    public List<TblGuru> allActors(){
+    @RequestMapping("/guru")
+    public List<TblGuru> allGurus(){
     	return em .createEntityManager().createQuery("from TblGuru").getResultList();
     }
-    
+    @RequestMapping("/siswa")
+    public List<TblSiswa> allSiswas(){
+    	return em .createEntityManager().createQuery("from TblSiswa").getResultList();
+    }
     @RequestMapping("/greeting")
     public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
 //        return new Greeting(counter.incrementAndGet(),
